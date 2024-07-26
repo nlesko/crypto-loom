@@ -1,71 +1,67 @@
 <template>
-    <nav id="navbar" class="relative z-10 w-full text-neutral-800">
-        <div class="flex flex-col max-w-screen-xl px-8 mx-auto lg:items-center lg:justify-between lg:flex-row py-4">
-            <div class="flex flex-col lg:flex-row items-center space-x-4 xl:space-x-8">
-                <div class="w-full flex flex-row items-center justify-between py-6">
-                    <div>
-                        <img src="~/assets/img/logo/nefa.svg" class="w-24 xl:w-28" alt="Nefa Logo" />
-                    </div>
-                    <button class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                        <MdiIcon icon="mdiSegment" v-if="!open" :size="24" />
-                        <MdiIcon icon="mdiClose" v-else :size="24" />
-                    </button>
-                </div>
-                <ul :class="[open ? 'flex' : 'hidden lg:flex']"
-                    class="w-full h-auto flex flex-col flex-grow lg:items-center pb-4 lg:pb-0 lg:justify-end lg:flex-row origin-top duration-300 xl:space-x-2 space-y-3 lg:space-y-0">
-                    <PublicNavLink name="Cryptocurrency" url="#" />
-                    <PublicNavLink name="Exchanges" url="#" />
-                    <PublicNavLink name="Watchlist" url="#" />
-                    <PublicNavLink name="NFT" url="#" />
-                    <PublicNavLink name="Portfolio" url="#" />
-                    <li class="relative group">
-                        <button
-                            class="md:px-4 py-2 text-sm bg-transparent rounded-lg text-[#666666] hover:text-gray-900 focus:outline-none focus:shadow-outline flex items-center"
-                            @click="dropdownToggler" @blur="dropdownToggler">
-                            <span>Products</span>
-                            <MdiIcon icon="mdiChevronUp" v-if="dropdownNavbar" :size="16" />
-                            <MdiIcon icon="mdiChevronDown" v-else :size="16" />
-                        </button>
-                        <transition name="transform-fade-down">
-                            <ul v-if="dropdownNavbar"
-                                class="flex lg:absolute flex-col max-w-42 py-1 lg:bg-white rounded-md lg:shadow-md pl-2 lg:pl-0">
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Exchange</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Wallet</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Explorer</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Charts</a>
-                                </li>
-                            </ul>
-                        </transition>
-                    </li>
-                </ul>
-            </div>
-            <div :class="[open ? 'flex' : 'hidden lg:flex']" class="space-x-3">
-                <PublicBaseButton class="px-8 xl:px-10 py-3 mt-2 bg-inherit text-gradient border border-[#0c66ee]">
-                    Login
-                </PublicBaseButton>
-                <PublicBaseButton class="px-8 xl:px-10 py-3 mt-2 bg-gradient-to-r from-[#468ef9] to-[#0c66ee] text-white">
-                    Sign Up
-                </PublicBaseButton>
-            </div>
-        </div>
-    </nav>
+    <nav class="bg-gray-900 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold">
+        <a href="#" class="hover:text-blue-500">Crypto Loom</a>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-blue-500">Home</a>
+        <a href="#" class="hover:text-blue-500">Features</a>
+        <a href="#" class="hover:text-blue-500">Pricing</a>
+        <a href="#" class="hover:text-blue-500">About</a>
+        <a href="#" class="hover:text-blue-500">Contact</a>
+      </div>
+
+      <!-- CTA Buttons and Theme Toggle -->
+      <div class="hidden md:flex items-center space-x-4">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Sign Up</button>
+        <button class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded">Log In</button>
+        <button @click="toggleDarkMode" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded">
+          <i :class="isDarkMode ? 'mdi mdi-weather-sunny' : 'mdi mdi-weather-night'"></i>
+        </button>
+      </div>
+
+      <!-- Hamburger Menu -->
+      <div class="md:hidden">
+        <button @click="toggleMenu" class="text-white focus:outline-none">
+          <i :class="menuOpen ? 'mdi mdi-close' : 'mdi mdi-menu'"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div v-if="menuOpen" class="md:hidden bg-gray-800 p-4">
+      <a href="#" class="block py-2 hover:text-blue-500">Home</a>
+      <a href="#" class="block py-2 hover:text-blue-500">Features</a>
+      <a href="#" class="block py-2 hover:text-blue-500">Pricing</a>
+      <a href="#" class="block py-2 hover:text-blue-500">About</a>
+      <a href="#" class="block py-2 hover:text-blue-500">Contact</a>
+      <div class="mt-4">
+        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Sign Up</button>
+        <button class="w-full bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded mt-2">Log In</button>
+      </div>
+    </div>
+  </nav>
 </template>
 <script setup>
-const open = ref(false)
-const dropdownNavbar = ref(false)
+const menuOpen = ref(false)
+const isDarkMode = ref(false)
 
-function dropdownToggler() {
-    dropdownNavbar.value = !dropdownNavbar.value
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value
+  document.documentElement.classList.toggle('dark')
 }
 </script>
+
+<style scoped>
+nav {
+  transition: background-color 0.3s ease;
+}
+</style>

@@ -1,252 +1,157 @@
 <template>
     <div class="w-full">
-        <section id="hero" class="w-full pb-24">
-            <PublicBaseSection>
-                <div
-                    class="col-span-12 lg:col-span-6 mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
-                    <span data-aos="fade-right" data-aos-once="true"
-                        class="text-base text-gradient font-semibold uppercase">Sign Up Today</span>
-                    <h1 data-aos="fade-right" data-aos-once="true"
-                        class="text-[2.5rem] sm:text-5xl xl:text-6xl font-bold leading-tight capitalize sm:pr-8 xl:pr-10">
-                        The World's <span class="text-header-gradient">Fastest Growing</span> Crypto Web App
-                    </h1>
-                    <p data-aos="fade-down" data-aos-once="true" data-aos-delay="300" class="paragraph hidden sm:block">
-                        Buy and sell 200+ cryptocurrencies with 20+ flat currencies using bank transfers or your
-                        credit/debit card.
-                    </p>
-                    <div data-aos="fade-up" data-aos-once="true" data-aos-delay="700"
-                        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-2">
-                        <PublicBaseButton
-                            class="max-w-full px-8 py-4 bg-gradient-to-r from-[#468ef9] to-[#0c66ee] border border-[#0c66ee] text-white">
-                            Get Started
-                        </PublicBaseButton>
-                        <PublicBaseButton
-                            class="max-w-full px-6 py-4 bg-inherit text-gradient border border-[#0c66ee] flex items-center justify-center">
-                            <span>Download App</span>
-                            <ChevronDownIcon :size="20" class="mt-1 text-[#0c66ee]" />
-                        </PublicBaseButton>
+        <section>
+            <div class="hero-section bg-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+                <div class="hero-content text-center md:text-left md:w-1/2">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Track and Trade Your Favorite Cryptocurrencies with Ease</h1>
+                    <p class="text-lg sm:text-xl mb-8">Stay on top of the market with real-time data and seamless trading.</p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="cta-button bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded">Get Started</a>
+                    <a href="#" class="cta-button bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded">Learn More</a>
                     </div>
                 </div>
-                <div class="hidden sm:block col-span-12 lg:col-span-6">
-                    <div class="w-full">
-                        <img data-aos="fade-up" data-aos-once="true" src="~/assets/img/hero-image.webp" class="-mt-4"
-                            alt="" />
-                    </div>
+                <div class="hero-image mt-10 md:mt-0 md:w-1/2">
+                    <img src="~/assets/img/crypto-loom-hero.png" alt="Crypto Loom" class="w-full h-auto rounded-lg shadow-lg">
                 </div>
-                <img data-aos="fade-up" data-aos-delay="300" src="~/assets/img/pattern/ellipse-1.png"
-                    class="hidden sm:block absolute bottom-12 xl:bottom-16 left-4 xl:left-0 w-6" />
-                <img data-aos="fade-up" data-aos-delay="300" src="~/assets/img/pattern/ellipse-2.png"
-                    class="hidden sm:block absolute top-4 sm:top-10 right-64 sm:right-96 xl:right-[32rem] w-6" />
-                <img data-aos="fade-up" data-aos-delay="300" src="~/assets/img/pattern/ellipse-3.png"
-                    class="hidden sm:block absolute bottom-56 right-24 w-6" />
-                <img data-aos="fade-up" data-aos-delay="300" src="~/assets/img/pattern/star.png"
-                    class="hidden sm:block absolute top-20 sm:top-28 right-16 lg:right-0 lg:left-[30rem] w-8" />
-            </PublicBaseSection>
+                </div>
+                <div class="features mt-12 flex justify-center space-x-6">
+                <div class="feature flex items-center space-x-2">
+                    <MdiIcon icon="mdiChartLine" class="text-blue-500 text-2xl" />
+                    <span>Real-time Tracking</span>
+                </div>
+                <div class="feature flex items-center space-x-2">
+                    <MdiIcon icon="mdiShieldCheck" class="text-blue-500 text-2xl" />
+                    <span>Secure Trading</span>
+                </div>
+                <div class="feature flex items-center space-x-2">
+                    <MdiIcon icon="mdiChartPie" class="text-blue-500 text-2xl" />
+                    <span>Comprehensive Analytics</span>
+                </div>
+                </div>
+            </div>
         </section>
-        <!-- Crypto statistic section -->
-        <section
-            class="max-w-screen-xl mx-2 sm:mx-auto px-4 sm:px-6 lg:px-0 py-6 pb-20 sm:py-8 rounded-[2.25rem] sm:rounded-xl bg-white shadow-lg sm:shadow-md transform lg:-translate-y-12">
-            <BaseSection class="w-full flex flex-col lg:flex-row items-center justify-center">
-                <PublicLandingCryptoStatistic data-aos="fade-up" title="🔥 Trending" :datasets="trendings"
-                    class="xl:border-r border-gray-200 lg:px-8" />
-                <PublicLandingCryptoStatistic data-aos="fade-up" data-aos-delay="150" title="🚀 Top Gainers"
-                    :datasets="topGainers" class="xl:border-r border-gray-200 lg:px-8" />
-                <PublicLandingCryptoStatistic data-aos="fade-up" data-aos-delay="300" title="💎 Recently Added"
-                    :datasets="recents" class="lg:px-8" />
-            </BaseSection>
-        </section>
-
-        <!-- Buy and trade section -->
-    <section class="w-full my-24">
-      <PublicBaseSection>
-        <LandingBuyTradeImage class="sm:hidden mb-8" />
-        <div data-aos="fade-right" class="col-span-12 lg:col-span-6 mt-4 xl:mt-20 space-y-6 px-4">
-          <h2 class="text-4xl font-semibold sm:pr-8 xl:pr-12">
-            Buy & trade on the <br class="hidden sm:block" />
-            original crypto exchange.
-          </h2>
-          <p class="paragraph">
-            Buy now and get 40% extra bonus Minimum pre-sale amount 25 Crypto Coin. We accept BTC crypto-currency
-          </p>
-          <div class="space-y-6 lg:pr-12">
-            <PublicLandingExchange
-              title="Amount"
-              name="amount"
-              type="number"
-              default-value="5.000"
-              :exchange-selected="currencySelected"
-              :exchanges="currencies"
-            />
-            <PublicLandingExchange
-              title="Get"
-              name="get"
-              type="number"
-              default-value="0.10901"
-              :exchange-selected="cryptoSelected"
-              :exchanges="cryptocurrencies"
-            />
-            <PublicBaseButton class="w-full px-5 py-4 bg-blue-gradient text-white text-base font-medium">Buy Now</PublicBaseButton>
-          </div>
+        <section class="features-overview py-16 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Why Choose Crypto Loom?</h2>
+      <p class="text-lg mb-12">Explore the powerful features that make Crypto Loom your ultimate cryptocurrency tracking and trading platform.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <MdiIcon icon="mdiChartLine" class="text-blue-500 text-4xl mb-4" />
+          <h3 class="text-2xl font-semibold mb-2">Real-time Tracking</h3>
+          <p class="text-base">Stay updated with real-time price tracking for all major cryptocurrencies.</p>
         </div>
-        <PublicLandingBuyTradeImage data-aos="fade-left" class="hidden sm:block" />
-      </PublicBaseSection>
-    </section>
-    <!-- Partners section -->
-    <section class="bg-partner relative max-w-full sm:mx-6 my-24 shadow sm:rounded-2xl overflow-hidden">
-      <div class="w-full px-6 sm:px-0 py-16 flex flex-col items-center justify-center space-y-4 text-center">
-        <h3 data-aos="flip-down" class="text-2xl text-neutral-800 font-semibold">Trusted Partners Worldwide</h3>
-        <p data-aos="flip-down" class="paragraph">We're partners with countless major organisations around the globe</p>
-        <div data-aos="fade-up" class="flex flex-wrap items-center justify-center">
-          <PublicLandingPartnerImage
-            v-for="img in ['clever.png', 'diamon-cutts.png', 'swiss-finance.png', 'gambio.png']"
-            :key="img"
-            :img="img"
-          />
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <MdiIcon icon="mdiShieldCheck" class="text-blue-500 text-4xl mb-4" />
+            <h3 class="text-2xl font-semibold mb-2">Secure Trading</h3>
+            <p class="text-base">Trade securely with our state-of-the-art encryption and security protocols.</p>
+        </div>
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <MdiIcon icon="mdiChartPie" class="text-blue-500 text-4xl mb-4" />
+          <h3 class="text-2xl font-semibold mb-2">Comprehensive Analytics</h3>
+          <p class="text-base">Analyze market trends with comprehensive analytics and data insights.</p>
+        </div>
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <MdiIcon icon="mdiWallet" class="text-blue-500 text-4xl mb-4" />
+          <h3 class="text-2xl font-semibold mb-2">Multi-currency Wallet</h3>
+          <p class="text-base">Manage multiple cryptocurrencies in one secure wallet.</p>
+        </div>
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <MdiIcon icon="mdiBellAlert" class="text-blue-500 text-4xl mb-4" />
+          <h3 class="text-2xl font-semibold mb-2">Price Alerts</h3>
+          <p class="text-base">Set custom price alerts to stay informed about market movements.</p>
+        </div>
+        <div class="feature-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <MdiIcon icon="mdiLock" class="text-blue-500 text-4xl mb-4" />
+          <h3 class="text-2xl font-semibold mb-2">Enhanced Privacy</h3>
+          <p class="text-base">Your data is private and secure, thanks to our strict privacy policies.</p>
         </div>
       </div>
-    </section>
-    <!-- Credit card section -->
-    <section class="w-full my-36">
-      <PublicBaseSection data-aos="fade-down">
-        <div class="col-span-12 lg:col-span-7">
-          <div class="w-full">
-            <img :src="'_nuxt/assets/img/nefa-cc.webp'" class="w-[95%]" alt="" />
+    </div>
+  </section>
+  <section class="user-testimonials py-16 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">What Our Users Say</h2>
+      <p class="text-lg mb-12">Discover how Crypto Loom has transformed the way our users track and trade cryptocurrencies.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial-card p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg">
+          <div class="flex justify-center mb-4">
+            <img :src="testimonial.photo" alt="User photo" class="w-16 h-16 rounded-full">
           </div>
+          <h3 class="text-xl font-semibold mb-2">{{ testimonial.name }}</h3>
+          <p class="text-base">"{{ testimonial.quote }}"</p>
         </div>
-        <div class="col-span-12 lg:col-span-5 space-y-6 px-4 sm:px-6 mt-20">
-          <h2 class="text-4xl font-semibold">
-            Introducing the <span class="text-header-gradient">NEFA</span> Credit Card
-          </h2>
-          <p class="paragraph">Subject to cardholder and rewards terms which will be available at application.</p>
-          <ul class="space-y-4 sm:space-y-2">
-            <PublicLandingListItem title="Up to 3% back on purchases" />
-            <PublicLandingListItem title="Earn rewards in bitcoin or any crypto on NEFA" />
-            <PublicLandingListItem title="No annual fee" />
+      </div>
+    </div>
+  </section>
+  <section class="pricing-plans py-16 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Choose Your Plan</h2>
+      <p class="text-lg mb-12">Flexible plans to meet your cryptocurrency tracking and trading needs.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="pricing-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Basic</h3>
+          <p class="text-4xl font-bold mb-4">$0</p>
+          <ul class="text-left mb-6">
+            <li class="mb-2">✓ Real-time Tracking</li>
+            <li class="mb-2">✓ Price Alerts</li>
+            <li class="mb-2">✓ Basic Analytics</li>
           </ul>
-          <PublicBaseButton
-            class="w-full sm:max-w-[240px] px-10 py-4 bg-inherit text-gradient border border-[#0c66ee] text-base"
-            >Join the waitlist</PublicBaseButton
-          >
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Get Started</button>
         </div>
-      </PublicBaseSection>
-    </section>
-    <!-- Advanced trading tools section -->
-    <section class="bg-trading-tools relative max-w-full sm:mx-4 my-20 py-16 shadow rounded-2xl overflow-hidden">
-      <div class="relative max-w-screen-xl px-4 sm:px-2 mx-auto grid grid-cols-12 gap-x-6">
-        <PublicLandingTradingToolImage class="sm:hidden" />
-        <div data-aos="fade-right" class="col-span-12 lg:col-span-6 space-y-8 sm:space-y-6 px-4 sm:px-6 mt-8">
-          <h2 class="text-4xl font-semibold">Advanced Trading <span class="text-header-gradient">Tools</span></h2>
-          <div class="space-y-2">
-            <h4 class="text-lg font-medium">Professional Access, Non-stop Availability</h4>
-            <p class="paragraph text-sm xl:text-base">
-              We provide premium access to crypto trading for both individuals and institutions through high liquidity,
-              reliable order execution and constant uptime.
-            </p>
-          </div>
-          <div class="space-y-2">
-            <h4 class="text-lg font-medium">A Range of Powerful Apis</h4>
-            <p class="paragraph text-sm xl:text-base">
-              Set up your own trading interface or deploy your algorithmic strategy with our high-performance FIX and
-              HTTP APIs. Connect to our WebSocket for real-time data streaming.
-            </p>
-          </div>
-          <div class="space-y-2">
-            <h4 class="text-lg font-medium">Customer Support</h4>
-            <p class="paragraph text-sm xl:text-base">
-              Premium 24/7 support available to all customers worldwide by phone or email. Dedicated account managers
-              for partners.
-            </p>
-          </div>
-          <div class="flex flex-col sm:flex-row">
-            <PublicBaseButton class="px-10 py-4 bg-inherit text-gradient border border-[#4A8FF6] text-base">
-              Get Started
-            </PublicBaseButton>
-            <PublicBaseButton class="bg-inherit text-[#4A8FF6] px-10 py-4 text-center underline rounded-full">
-              Learn More
-            </PublicBaseButton>
-          </div>
-        </div>
-        <PublicLandingTradingToolImage data-aos="fade-left" class="hidden sm:block" />
-      </div>
-    </section>
-    <!-- Industry-leading security section -->
-    <section class="w-full my-24">
-      <div class="relative max-w-screen-xl px-8 mx-auto grid grid-cols-12 gap-x-6">
-        <div data-aos="fade-right" class="col-span-12 lg:col-span-6">
-          <div class="w-full">
-            <img :src="'_nuxt/assets/img/industry-leading-security.webp'" class="w-full" alt="" />
-          </div>
-        </div>
-        <div data-aos="fade-left" class="col-span-12 lg:col-span-5 space-y-8 sm:space-y-6 mt-8 xl:px-8">
-          <h2 class="text-4xl font-semibold">Industry-leading security from day one</h2>
-          <ul class="space-y-8 sm:space-y-4">
-            <PublicLandingListItem title="Safety, security and compliance">
-              <p class="text-sm text-gray-700 leading-relaxed">
-                NEFA is a licensed New York trust company that undergoes regular bank exams and is subject to the
-                cybersecurity audits conducted by the New York Department of Financial Services.
-                <span class="underline">Learn more</span> about our commitment to security.
-              </p>
-            </PublicLandingListItem>
-            <PublicLandingListItem title="Hardware security keys">
-              <p class="text-sm text-gray-700 leading-relaxed">
-                With NEFA you can secure your account with a hardware security key via WebAuthn.
-              </p>
-            </PublicLandingListItem>
-            <PublicLandingListItem title="SOC Certifications">
-              <p class="text-sm text-gray-700 leading-relaxed">
-                NEFA is <span class="underline">SOC 1 Type 2</span> and
-                <span class="underline">SOC 2 Type 2</span> compliant. We are the world’s first cryptocurrency exchange
-                and custodian to complete these exams.
-              </p>
-            </PublicLandingListItem>
+        <div class="pricing-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Pro</h3>
+          <p class="text-4xl font-bold mb-4">$9.99<span class="text-base">/mo</span></p>
+          <ul class="text-left mb-6">
+            <li class="mb-2">✓ All Basic Features</li>
+            <li class="mb-2">✓ Secure Trading</li>
+            <li class="mb-2">✓ Advanced Analytics</li>
+            <li class="mb-2">✓ Multi-currency Wallet</li>
           </ul>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Upgrade</button>
+        </div>
+        <div class="pricing-card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold mb-4">Premium</h3>
+          <p class="text-4xl font-bold mb-4">$19.99<span class="text-base">/mo</span></p>
+          <ul class="text-left mb-6">
+            <li class="mb-2">✓ All Pro Features</li>
+            <li class="mb-2">✓ Priority Support</li>
+            <li class="mb-2">✓ Exclusive Insights</li>
+            <li class="mb-2">✓ Personalized Alerts</li>
+          </ul>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Go Premium</button>
         </div>
       </div>
-    </section>
-
-    <!-- Getting started section -->
-    <section class="bg-trading-tools relative max-w-full sm:mx-4 xl:mx-10 my-24 shadow sm:rounded-2xl overflow-hidden">
-      <div class="w-full py-16 flex flex-col items-center">
-        <h2 data-aos="flip-down" class="text-3xl sm:text-4xl font-semibold text-center">
-          Get started in just a few minutes
-        </h2>
-        <div
-          data-aos="fade-up"
-          class="relative w-full flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 px-4 xl:px-10 mt-16 sm:mt-8"
-        >
-          <PublicLandingStep v-for="step in steps" :key="step.title" :step="step" />
-          <img
-            :src="'_nuxt/assets/img/getting-started/arrow.png'"
-            class="hidden lg:inline-block absolute top-32 left-64 xl:left-[22rem] w-24 xl:w-[9.5rem]"
-            alt=""
-          />
-          <img
-            :src="'_nuxt/assets/img/getting-started/arrow.png'"
-            class="hidden lg:inline-block absolute top-32 right-64 xl:right-[22rem] w-24 xl:w-[9.5rem]"
-            alt=""
-          />
+    </div>
+  </section>
+  <section class="faq-section py-16 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Frequently Asked Questions</h2>
+      <p class="text-lg mb-12">Have questions? We've got answers. Find out more about Crypto Loom and how it can help you manage your cryptocurrency portfolio.</p>
+      <div class="faq-container mx-auto max-w-4xl">
+        <div v-for="faq in faqs" :key="faq.question" class="faq-item mb-6">
+          <div @click="toggleFaq(faq)" class="faq-question bg-gray-100 dark:bg-gray-800 p-4 rounded-lg cursor-pointer flex justify-between items-center">
+            <h3 class="text-xl font-semibold">{{ faq.question }}</h3>
+            <i :class="faq.open ? 'mdi mdi-chevron-up' : 'mdi mdi-chevron-down'" class="text-gray-500 dark:text-gray-400"></i>
+          </div>
+          <div v-if="faq.open" class="faq-answer bg-gray-50 dark:bg-gray-700 p-4 mt-2 rounded-lg">
+            <p>{{ faq.answer }}</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <section class="get-started py-16 bg-blue-500 text-white text-center">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold mb-4">Get Started with Crypto Loom Today</h2>
+      <p class="text-lg mb-8">Join thousands of satisfied users who are tracking and trading cryptocurrencies effortlessly with Crypto Loom.</p>
+      <button class="bg-white text-blue-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">Sign Up Now</button>
+    </div>
+  </section>
+  
 
     <!-- FAQ section -->
-    <section class="w-full my-24">
-      <PublicBaseSection>
-        <div data-aos="fade-right" data-aos-delay="150" class="col-span-12 lg:col-span-6">
-          <div class="w-full">
-            <img :src="'_nuxt/assets/img/faq.webp'" class="w-full" alt="" />
-          </div>
-        </div>
-        <div data-aos="fade-left" data-aos-delay="150" class="col-span-12 lg:col-span-6 px-4 sm:px-6 mt-8">
-          <span class="text-base text-gradient font-semibold uppercase mb-4 sm:mb-2">Support</span>
-          <h2 class="text-3xl sm:text-4xl font-semibold mb-10 sm:mb-6">Frequently asked questions</h2>
-
-          <ul class="shadow-box">
-            <PublicBaseAccordion v-for="(accordion, index) in accordions" :key="index" :accordion="accordion" />
-          </ul>
-        </div>
-      </PublicBaseSection>
-    </section>
+    
     <!-- <div class="w-full my-10 flex justify-center">
       <a
         v-smooth-scroll
@@ -274,6 +179,109 @@ definePageMeta({
 const selected = ref(0)
 const dropdownConcurency = ref(false)
 const dropdownCrypto = ref(false)
+const features = [
+  {
+    icon: 'mdi-chart-line',
+    title: 'Real-time Tracking',
+    description: 'Stay updated with real-time price tracking for all major cryptocurrencies.',
+  },
+  {
+    icon: 'mdi-shield-check',
+    title: 'Secure Trading',
+    description: 'Trade securely with our state-of-the-art encryption and security protocols.',
+  },
+  {
+    icon: 'mdi-chart-pie',
+    title: 'Comprehensive Analytics',
+    description: 'Analyze market trends with comprehensive analytics and data insights.',
+  },
+  {
+    icon: 'mdi-wallet',
+    title: 'Multi-currency Wallet',
+    description: 'Manage multiple cryptocurrencies in one secure wallet.',
+  },
+  {
+    icon: 'mdi-bell-alert',
+    title: 'Price Alerts',
+    description: 'Set custom price alerts to stay informed about market movements.',
+  },
+  {
+    icon: 'mdi-lock',
+    title: 'Enhanced Privacy',
+    description: 'Your data is private and secure, thanks to our strict privacy policies.',
+  },
+]
+const testimonials = [
+  {
+    name: 'Alice Johnson',
+    photo: 'path-to-alice-photo.jpg',
+    quote: 'Crypto Loom has completely changed the way I track my investments. The real-time updates are incredibly helpful.',
+  },
+  {
+    name: 'Michael Smith',
+    photo: 'path-to-michael-photo.jpg',
+    quote: 'The secure trading features give me peace of mind. I can trade confidently knowing my assets are protected.',
+  },
+  {
+    name: 'Sarah Lee',
+    photo: 'path-to-sarah-photo.jpg',
+    quote: 'I love the comprehensive analytics. It helps me make informed decisions and stay ahead of market trends.',
+  },
+  // Add more testimonials as needed
+]
+const plans = [
+  {
+    name: 'Basic',
+    price: '$0',
+    features: ['Real-time Tracking', 'Price Alerts', 'Basic Analytics'],
+    cta: 'Get Started',
+  },
+  {
+    name: 'Pro',
+    price: '$9.99/mo',
+    features: ['All Basic Features', 'Secure Trading', 'Advanced Analytics', 'Multi-currency Wallet'],
+    cta: 'Upgrade',
+  },
+  {
+    name: 'Premium',
+    price: '$19.99/mo',
+    features: ['All Pro Features', 'Priority Support', 'Exclusive Insights', 'Personalized Alerts'],
+    cta: 'Go Premium',
+  },
+]
+const faqs = ref([
+  {
+    question: 'What is Crypto Loom?',
+    answer: 'Crypto Loom is a comprehensive cryptocurrency tracking and trading platform designed to help you manage your digital assets efficiently.',
+    open: false,
+  },
+  {
+    question: 'How do I track my investments?',
+    answer: 'With Crypto Loom, you can track your investments in real-time using our advanced tracking tools. Simply add your portfolio and let our platform do the rest.',
+    open: false,
+  },
+  {
+    question: 'Is my data secure?',
+    answer: 'Yes, we prioritize your security. Crypto Loom uses state-of-the-art encryption and security protocols to ensure your data is always safe.',
+    open: false,
+  },
+  {
+    question: 'Can I trade cryptocurrencies on Crypto Loom?',
+    answer: 'Currently, Crypto Loom focuses on tracking cryptocurrencies, but we are planning to introduce secure trading features soon.',
+    open: false,
+  },
+  {
+    question: 'What are the pricing plans?',
+    answer: 'Crypto Loom offers flexible pricing plans to suit your needs, including a free Basic plan, a Pro plan at $9.99/month, and a Premium plan at $19.99/month.',
+    open: false,
+  },
+])
+
+const toggleFaq = (faq) => {
+  faq.open = !faq.open
+}
+
+
 const currencySelected = ref({
   img: 'country-icon/eng.png',
   name: 'USD',
@@ -441,6 +449,45 @@ const steps = ref([
 </script>
 
 <style scoped>
+.features-overview {
+  transition: background-color 0.3s ease;
+}
+.feature-card {
+  transition: box-shadow 0.3s ease;
+}
+.user-testimonials {
+  transition: background-color 0.3s ease;
+}
+.testimonial-card {
+  transition: box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.pricing-plans {
+  transition: background-color 0.3s ease;
+}
+.pricing-card {
+  transition: box-shadow 0.3s ease;
+}
+.pricing-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.faq-question {
+  transition: background-color 0.3s ease;
+}
+.faq-question:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.get-started {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.get-started button {
+  transition: background-color 0.3s ease;
+}
+
+
+
 .text-header-gradient {
     background: rgb(57, 132, 244);
     background: linear-gradient(169.4deg, #3984f4 -6.01%, #0cd3ff 36.87%, #2f7cf0 78.04%, #0e65e8 103.77%);
