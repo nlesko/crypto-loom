@@ -84,6 +84,26 @@
       </div>
     </div>
   </section>
+  <section class="visual-demos py-16 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Visual Demonstrations</h2>
+      <p class="text-lg mb-12">See Crypto Loom in action. Watch our tutorials to get the most out of our platform.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="demo in demos" :key="demo.title" class="demo-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-left">
+          <div class="relative mb-4">
+            <img :src="demo.thumbnail" alt="Demo thumbnail" class="w-full rounded">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <button class="bg-blue-500 text-white p-4 rounded-full">
+                <i class="mdi mdi-play text-3xl"></i>
+              </button>
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">{{ demo.title }}</h3>
+          <p class="text-gray-700 dark:text-gray-300">{{ demo.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="pricing-plans py-16 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold mb-8">Choose Your Plan</h2>
@@ -141,14 +161,46 @@
       </div>
     </div>
   </section>
-  <section class="get-started py-16 bg-blue-500 text-white text-center">
+  <section class="get-started py-16 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-center">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold mb-4">Get Started with Crypto Loom Today</h2>
       <p class="text-lg mb-8">Join thousands of satisfied users who are tracking and trading cryptocurrencies effortlessly with Crypto Loom.</p>
-      <button class="bg-white text-blue-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">Sign Up Now</button>
+      <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">Sign Up Now</button>
     </div>
   </section>
-  
+  <section class="latest-news py-16 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Latest News</h2>
+      <p class="text-lg mb-12">Stay updated with the latest trends and insights in the cryptocurrency world.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="post in posts" :key="post.title" class="news-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg">
+          <img :src="post.image" alt="News image" class="mb-4 rounded">
+          <h3 class="text-2xl font-semibold mb-2">{{ post.title }}</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">{{ post.description }}</p>
+          <a :href="post.link" class="text-blue-500 hover:text-blue-600">Read More</a>
+          <div class="text-sm text-gray-500 dark:text-gray-400 mt-2">{{ post.date }} by {{ post.author }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials py-16 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">What Our Users Say</h2>
+      <p class="text-lg mb-12">Hear from our community about how Crypto Loom has transformed their cryptocurrency experience.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="testimonial in testimonialss" :key="testimonial.name" class="testimonial-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-left">
+          <div class="flex items-center mb-4">
+            <img :src="testimonial.photo" alt="User photo" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h3 class="text-xl font-semibold">{{ testimonial.name }}</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">{{ testimonial.role }}</p>
+            </div>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300">“{{ testimonial.text }}”</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
     <!-- FAQ section -->
     
@@ -179,6 +231,46 @@ definePageMeta({
 const selected = ref(0)
 const dropdownConcurency = ref(false)
 const dropdownCrypto = ref(false)
+const testimonialss = [
+  {
+    name: 'Alice Johnson',
+    role: 'Crypto Trader',
+    photo: 'path-to-photo1.jpg',
+    text: 'Crypto Loom has revolutionized the way I track my investments. The real-time data is invaluable!',
+  },
+  {
+    name: 'Bob Smith',
+    role: 'Blockchain Developer',
+    photo: 'path-to-photo2.jpg',
+    text: 'The analytics tools provided by Crypto Loom are top-notch. I highly recommend it to anyone in the crypto space.',
+  },
+  {
+    name: 'Carol Davis',
+    role: 'Crypto Enthusiast',
+    photo: 'path-to-photo3.jpg',
+    text: 'I love the user-friendly interface and the comprehensive features. Crypto Loom makes managing my portfolio a breeze.',
+  },
+  // Add more testimonials as needed
+]
+
+const demos = [
+  {
+    title: 'Getting Started with Crypto Loom',
+    description: 'Learn the basics of setting up your account and getting started with Crypto Loom.',
+    thumbnail: 'path-to-thumbnail1.jpg',
+  },
+  {
+    title: 'Tracking Your Portfolio',
+    description: 'Discover how to add your assets and track their performance in real-time.',
+    thumbnail: 'path-to-thumbnail2.jpg',
+  },
+  {
+    title: 'Advanced Analytics Tools',
+    description: 'Explore the advanced analytics tools available on Crypto Loom for in-depth market analysis.',
+    thumbnail: 'path-to-thumbnail3.jpg',
+  },
+  // Add more demos as needed
+]
 const features = [
   {
     icon: 'mdi-chart-line',
@@ -404,6 +496,33 @@ const recents = ref([
     data: [35, 30, 60, 50, 35, 45, 40],
   },
 ])
+const posts = [
+  {
+    title: 'Understanding Bitcoin and Its Impact on the Market',
+    description: 'An in-depth look at Bitcoin and how it continues to influence the cryptocurrency landscape.',
+    image: 'path-to-image1.jpg',
+    link: '#',
+    date: 'June 30, 2024',
+    author: 'John Doe',
+  },
+  {
+    title: 'Top 5 Altcoins to Watch in 2024',
+    description: 'A review of the most promising altcoins that could shape the future of cryptocurrency.',
+    image: 'path-to-image2.jpg',
+    link: '#',
+    date: 'June 28, 2024',
+    author: 'Jane Smith',
+  },
+  {
+    title: 'Crypto Loom Update: New Features and Improvements',
+    description: 'Discover the latest updates to the Crypto Loom platform, designed to enhance your experience.',
+    image: 'path-to-image3.jpg',
+    link: '#',
+    date: 'June 25, 2024',
+    author: 'Crypto Loom Team',
+  },
+  // Add more posts as needed
+]
 const accordions = ref([
   {
     title: 'Why should I choose NEFA?',
@@ -480,12 +599,44 @@ const steps = ref([
   background-color: rgba(0, 0, 0, 0.05);
 }
 .get-started {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: background-color 0.3s ease;
 }
 .get-started button {
   transition: background-color 0.3s ease;
 }
-
+.latest-news {
+  transition: background-color 0.3s ease;
+}
+.news-card {
+  transition: box-shadow 0.3s ease;
+}
+.news-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.testimonials {
+  transition: background-color 0.3s ease;
+}
+.testimonial-card {
+  transition: box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.visual-demos {
+  transition: background-color 0.3s ease;
+}
+.demo-card {
+  transition: box-shadow 0.3s ease;
+}
+.demo-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+button {
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
 
 .text-header-gradient {
