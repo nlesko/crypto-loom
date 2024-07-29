@@ -11,5 +11,9 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
+  },
+  runtimeConfig: {
+    coinRankingApiKey: process.env.COIN_RANKING_API_KEY,
+    coinRankingBaseUrl: process.env.COIN_RANKING_BASE_URL,
   }
 })
