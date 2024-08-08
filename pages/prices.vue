@@ -13,10 +13,17 @@
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-500">
                 <tr v-for="item in data.results" :key="item.uuid">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.name }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        {{ item.symbol }}
+                        <div>
+                            <NuxtLink :href="`/prices/${item.uuid}`" class="flex gap-2 content-center">
+                                <div class="flex flex-col content-center justy-center">
+                                    <img :src="item.iconUrl" class="block h-6 w-6"/>
+                                </div>
+                                <div class="flex flex-col">
+                                    <h5>{{ item.name }}</h5>
+                                    <div>{{ item.symbol }}</div>
+                                </div>
+                            </NuxtLink>
+                        </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ item.price }}
@@ -59,7 +66,7 @@ definePageMeta({
 const url = '/api/coins';
 const { data, error } = useFetch(url);
 console.log('data', data)
-const headers = ref(['Name', 'Symbol', 'Price', 'Market Cap', '24h Volume', '24h %']);
+const headers = ref(['Name', 'Price', 'Market Cap', '24h Volume', '24h %']);
 // const page = ref(1);
 // const perPage = 10;
 // const pageCount = computed(() => Math.ceil(data?.results?.length / perPage));
